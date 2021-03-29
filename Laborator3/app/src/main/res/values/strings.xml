@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">PhoneDialer</string>
+    <string name="phone_error">No Phone Number Provided!</string>
 </resources>

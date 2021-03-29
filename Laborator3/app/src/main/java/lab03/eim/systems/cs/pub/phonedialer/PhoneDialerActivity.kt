@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.provider.SyncStateContract.Constants
 import android.view.View
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -54,6 +55,27 @@ class PhoneDialerActivity : AppCompatActivity() {
             val intent = Intent(Intent.ACTION_CALL)
             intent.data = Uri.parse("tel:" + phoneNumber)
             startActivity(intent)
+        }
+    }
+
+    val CONTACTS_MANAGER_REQUEST_CODE = 0
+
+    fun openContactsManager(view: View) {
+        val phoneNumber: String = binding.editTextPhone.text.toString()
+        if (phoneNumber.isNotEmpty()) {
+            val intent =
+                Intent("ro.pub.cs.systems.eim.lab04.contactsmanager.intent.action.ContactsManagerActivity")
+            intent.putExtra(
+                "ro.pub.cs.systems.eim.lab04.contactsmanager.PHONE_NUMBER_KEY",
+                phoneNumber
+            )
+            startActivityForResult(intent, CONTACTS_MANAGER_REQUEST_CODE)
+        } else {
+            Toast.makeText(
+                application,
+                resources.getString(R.string.phone_error),
+                Toast.LENGTH_LONG
+            ).show()
         }
     }
 }

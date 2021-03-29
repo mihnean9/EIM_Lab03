@@ -135,7 +135,15 @@
             android:layout_height="wrap_content"
             android:src="@drawable/call"
             android:onClick="startCall"
-            android:layout_gravity="start"
+            />
+
+        <ImageButton
+            android:id="@+id/imageButtonContacts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_perm_contact_calendar_24"
+            android:onClick="openContactsManager"
+            android:layout_gravity="center_horizontal"
             />
 
         <ImageButton
@@ -143,8 +151,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_row="0"
-            android:layout_gravity="end"
-            android:layout_columnSpan="2"
             android:src="@drawable/hangup" />
 
     </GridLayout>
